@@ -1,0 +1,57 @@
+{
+  "name": "kolejki-nfz-mcp",
+  "version": "0.1.0",
+  "description": "MCP server: NFZ waiting times in Poland for AI agents – where a specialist, test or treatment paid by NFZ is available soonest near you (forecast wait, address, phone, accessibility). No API key.",
+  "type": "module",
+  "bin": {
+    "kolejki-nfz-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node -e \"try{require('fs').chmodSync('dist/index.js',0o755)}catch(e){}\"",
+    "test": "npm run build && node --test test/unit.test.mjs",
+    "prepublishOnly": "npm test",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "nfz",
+    "kolejki",
+    "terminy-leczenia",
+    "lekarz-specjalista",
+    "waiting-times",
+    "healthcare",
+    "poland",
+    "open-data",
+    "claude",
+    "ai-agent"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "typescript": "^5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ContentWriterco/kolejki-nfz-mcp.git"
+  },
+  "homepage": "https://kolejki.compabase.com",
+  "bugs": {
+    "url": "https://github.com/ContentWriterco/kolejki-nfz-mcp/issues"
+  },
+  "mcpName": "io.github.ContentWriterco/kolejki-nfz-mcp"
+}

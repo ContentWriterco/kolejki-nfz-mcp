@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.ContentWriterco/kolejki-nfz-mcp",
+  "description": "NFZ waiting times in Poland: where a specialist, test or treatment is available soonest",
+  "repository": { "url": "https://github.com/ContentWriterco/kolejki-nfz-mcp", "source": "github" },
+  "version": "0.1.0",
+  "packages": [
+    { "registryType": "npm", "identifier": "kolejki-nfz-mcp", "version": "0.1.0", "transport": { "type": "stdio" } }
+  ],
+  "remotes": [{ "type": "streamable-http", "url": "https://kolejki.compabase.com/mcp" }]
+}
