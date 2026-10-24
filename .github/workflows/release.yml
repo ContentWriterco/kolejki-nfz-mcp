@@ -26,6 +26,9 @@ jobs:
       - run: npm install -g npm@latest
       - run: npm ci
       - name: Publish (skipped if this version is already on npm)
+        env:
+          # trusted publishing (OIDC) first; NPM_TOKEN secret as fallback when no trusted publisher is configured
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           v=$(node -p "require('./package.json').version")
           if npm view "kolejki-nfz-mcp@$v" version >/dev/null 2>&1; then echo "kolejki-nfz-mcp@$v already on npm"; else npm publish --provenance --access public; fi
